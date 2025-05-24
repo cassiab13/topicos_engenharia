@@ -1,12 +1,12 @@
 import csv
 from typing import List
-from clusterizacao.models.student import Student
+from models.student import Student
 
 
 class CSVReader:
     def readCsv(csvfile: str) -> List[Student]:
         students = []
-        with open(csvfile, newline='', encoding='utf-8') as file:
+        with open(csvfile, mode='r') as file:
             reader = csv.DictReader(file)
             for row in reader:
                 student = Student(
