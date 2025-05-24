@@ -13,7 +13,7 @@ Explorar e aplicar conceitos de IA em problemas reais ou simulados na área de e
 
 ### 🔍 Tópicos Abordados
 
-- Clusterização (K-Means, DBSCAN, Hierárquica)
+- Clusterização
 
 ### 🚀 Como Executar
 
