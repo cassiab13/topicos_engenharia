@@ -31,3 +31,7 @@ class Cluster:
             absences += student.absences
         
         return (age/quantity, grade/quantity, absences/quantity)
+    
+    
+    def __str__(self):
+        return f"{self.centroid} {self.students}"

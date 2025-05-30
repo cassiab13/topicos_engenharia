@@ -6,17 +6,20 @@ from services.calculate import Calculate
 def main():
     csv_file = 'alunos1.csv'
     students = CSVReader.readCsv(csv_file)
-    centroid = initial_centroid(students)
-    cluster1 = Cluster(centroid[0])
-    cluster2 = Cluster(centroid[1])
+    initialCentroids = initial_centroid(students)
+    initialClusters = [Cluster(initialCentroids[0]), Cluster(initialCentroids[1])]
+    calculate = Calculate(initialClusters)
     
     for student in students:
-        cluster = Calculate.define_cluster(student, cluster1, cluster2)
-        cluster.calculate_centroid()
-        print(f"New centroid {cluster.centroid}")
-    print(f"Cluster1: {cluster1.students}")
-    print(f"Cluster2: {cluster2.students}")
-    return cluster1.centroid, cluster2.centroid
+        cluster = calculate.define_cluster_2(student)
+        
+        if (cluster):
+            cluster.addStudent(student)
+            
+    for cluster in calculate.clusters:
+        print(f"Cluster: {cluster}")
+        
+    pass
 
     
 
